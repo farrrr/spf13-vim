@@ -1,0 +1,113 @@
+" Enviroment
+    " Basics
+    set shell=/bin/bash
+
+" General
+    set fileencodings=utf-8,ucs-bom,gbk
+    set fileformats=unix,mac,dos
+    set viewoptions-=options,folds
+    set nospell
+    set noswapfile
+    set nomore
+
+" Vim UI
+    set listchars=tab:>-,trail:.,extends:>
+
+" Formatting
+    set wrap&
+    set pastetoggle=<leader>p
+    set foldmethod=marker
+    autocmd FileType css,less,vm autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+
+" Key (re)Mappings
+    if !(exists('g:far_no_easyWindows'))
+        map <C-J> <C-W>j<C-W>=
+        map <C-K> <C-W>k<C-W>=
+        map <C-L> <C-W>l<C-W>=
+        map <C-H> <C-W>h<C-W>=
+    endif
+    " Use <A-n> to go to the nth tabpage
+        nnoremap <A-1> 1gt
+        nnoremap <A-2> 2gt
+        nnoremap <A-3> 3gt
+        nnoremap <A-4> 4gt
+        nnoremap <A-5> 5gt
+        nnoremap <A-6> 6gt
+        nnoremap <A-7> 7gt
+        nnoremap <A-8> 8gt
+        nnoremap <A-9> 9gt
+        nnoremap <A-0> 10gt
+
+" Plugins
+    " PIV
+        let g:DisableAutoPHPFolding = 1
+        let g:PIVAutoClose = 0
+
+    " Numbers
+        nnoremap <F9>   :NumbersToggle<CR>
+        nnoremap <F10>  :NumbersOnOff<CR>
+
+    " Omnicomplete
+        set completeopt-=preview
+
+    " Tabularize
+        nmap <Leader>a" :Tabularize /"<CR>
+        vmap <Leader>a" :Tabularize /"<CR>
+        nmap <Leader>a/ :Tabularize /\/<CR>
+        vmap <Leader>a/ :Tabularize /\/<CR>
+
+    " Indent Line
+        let g:indentLine_color_term = 239
+        let g:indentLine_char = '┆'
+
+    " syntastic
+        let g:syntastic_check_on_open = 1
+        let g:syntastic_check_on_wq = 1
+        let g:syntastic_aggregate_errors = 1
+        let g:syntastic_auto_loc_list = 1
+        let g:syntastic_error_symbol = '✗'
+        let g:syntastic_warning_symbol = '⚠'
+
+    " ZendCoding
+        let g:user_zen_leader_key = '<c-k>'
+
+    " Powerline
+        let g:spf13_use_powerline = 0
+
+    " Json
+        let g:vim_json_syntax_conceal = 0
+
+    " Javascript
+        let javascript_enable_domhtmlcss = 1
+        let g:javascript_conceal = 0
+
+
+    " airline
+        let g:airline_enable_branch = 1
+        let g:airline_enable_syntastic = 1
+        let g:airline_enable_tagbar = 1
+        let g:airline_detect_modified = 1
+        let g:airline_detect_paste = 1
+        let g:airline_detect_whitespace = 2
+
+" Remove Bundle
+    UnBundle 'nathanaelkane/vim-indent-guides'
+    UnBundle 'dag/vim2hs'
+    UnBundle 'Twinside/vim-haskellConceal'
+    UnBundle 'lukerandall/haskellmode-vim'
+    UnBundle 'ujihisa/neco-ghc'
+    UnBundle 'eagletmt/ghcmod-vim'
+    UnBundle 'adinapoli/cumino'
+    UnBundle 'bitc/vim-hdevtools'
+    UnBundle 'spf13/vim-preview'
+    UnBundle 'tpope/vim-cucumber'
+    UnBundle 'tpope/vim-abolish.git'
+    UnBundle 'quentindecock/vim-cucumber-align-pipes'
+    UnBundle 'Puppet-Syntax-Highlighting'
+    UnBundle 'vim-scripts/sessionman.vim'
+    UnBundle 'flazz/vim-colorschemes'
+    UnBundle 'briancollins/vim-jst'
+    UnBundle 'vim-scripts/restore_view.vim'
+    UnBundle 'spf13/PIV'
+    UnBundle 'mattn/gist-vim'
+    UnBundle 'arnaud-lb/vim-php-namespace'
