@@ -77,7 +77,6 @@
             source ~/.vimrc.bundles
         endif
     " }
-    NeoBundleCheck
 
 " }
 
