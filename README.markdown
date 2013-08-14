@@ -120,7 +120,7 @@ _直接從 vundle readme 複製說明_
 
 我非常歡迎大家發送 pull requests 給我。已經有不少人是 [spf13-vim] 的 [contributors].
 
-# 高度優化的 .vimrc 設定檔
+# 高度最佳化的 .vimrc 設定檔
 
 ![spf13-vimrc image][spf13-vimrc-img]
 
@@ -171,48 +171,48 @@ See `.vimrc.bundles` for specifics on what options can be set to override bundle
 
 一個 spf13-vim 的 fork 客制化範例，可以參閱 [taxilian's fork](https://github.com/taxilian/spf13-vim).
 
-# Plugins
+# 插件
 
-spf13-vim contains a curated set of popular vim plugins, colors, snippets and syntaxes. Great care has been made to ensure that these plugins play well together and have optimal configuration.
+spf13-vim 包含了許多熱門的 vim 插件，配色，腳本片段和語法高亮。我們盡最大努力確保這些插件能夠共同運作正且最佳化其設定檔.
 
-## Adding new plugins
+## 增加新的插件
 
-Create `~/.vimrc.bundles.local` for any additional bundles.
+創建 `~/.vimrc.bundles.local` 給任何新增加的插件
 
-To add a new bundle
+增加一個新的插件
 
 ```bash
     echo NeoBundle \'spf13/vim-colors\' >> ~/.vimrc.bundles.local
 ```
 
-## Removing (disabling) an included plugin
+## 移除 (關閉) 一個已存的插件
 
-Create `~/.vimrc.local` if it doesn't already exist.
+如果沒有這個檔案，請創建 `~/.vimrc.local`
 
-Add the NeoBundleDisable command to this line. It takes the same input as the Bundle line, so simply copy the line you want to disable and add 'Un' to the beginning.
+添加這行 NeoBundleDisable 指令。他跟 Bundle 寫法類似，只要複製你想關閉的插件，並且在最前面加上 'Un' 即可。
 
-For example, disabling the 'AutoClose' and 'scrooloose/syntastic' plugins
+例如，關閉 'AutoClose' 和 'scrooloose/syntastic' 插件
 
 ```bash
     echo NeoBundleDisable \'AutoClose\' >> ~/.vimrc.local
     echo NeoBundleDisable \'scrooloose/syntastic\' >> ~/.vimrc.local
 ```
 
-**Remember to run ':NeoBundleClean!' after this to remove the existing directories**
+**記得執行 ':NeoBundleClean!' 來移除這些插件**
 
 
-Here are a few of the plugins:
+這裡有些插件介紹:
 
 
 ## [Undotree]
 
-If you undo changes and then make a new change, in most editors the changes you undid are gone forever, as their undo-history is a simple list.
-Since version 7.0 vim uses an undo-tree instead. If you make a new change after undoing changes, a new branch is created in that tree.
-Combined with persistent undo, this is nearly as flexible and safe as git ;-)
+如果你復原更改然後又做了一些更動，在多數的編輯器中，你最先的更動是無法再復原，因為他們的復原歷史只是一個簡單的列表。
+從 Vim 7.0 之後使用復原樹取代。如果你復原更改後又做了更動，在復原樹上將會產生一個新的分支。
+結合持續性的復原，他幾乎是像 git 一樣的靈活且安全 ;-)
 
-Undotree makes that feature more accessible by creating a visual representation of said undo-tree.
+Undotree 也有視覺化呈現出復原樹，讓使用上更為便捷。
 
-**QuickStart** Launch using `<Leader>u`.
+**快捷鍵** `<Leader>u`.
 
 ## [NERDTree]
 
