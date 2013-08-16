@@ -13,7 +13,6 @@
     autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
 
 " Vim UI
-    set listchars=tab:>-,trail:.,extends:>
 
 " Formatting
     set wrap&
