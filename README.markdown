@@ -7,68 +7,69 @@
         |___/ .__/|_| |_|____/        \_/  |_|_| |_| |_|
             |_|
 
-spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacVim].
+spf13-vim 是一個包含了插件及資源的安裝套件，設計給 Vim, Gvim 還有 [MacVim] 使用。
 
-It is a good starting point for anyone intending to use VIM for development running equally well on Windows, Linux, \*nix and Mac.
+給在 Windows, Linux, \*nix 或是 Mac 環境下，想使用 VIM 作為開發環境的開發者而言，這是一個非常好的起始點。
 
-The distribution is completely customisable using a `~/.vimrc.local` and `~/.vimrc.bundles.local` Vim RC files.
+此安裝套件可藉著編輯 `~/.vimrc.local` 和 `~/.vimrc.bundles.local` 設定檔來達到完整的客制化。
 
 ![spf13-vim image][spf13-vim-img]
 
-Unlike traditional VIM plugin structure, which similar to UNIX throws all files into common directories, making updating or disabling plugins a real mess, spf13-vim 3 uses the [NeoBundle] plugin management system to have a well organized vim directory (Similar to mac's app folders). NeoBundle also ensures that the latest versions of your plugins are installed and makes it easy to keep them up to date.
+傳統 VIM 插件架構將所有的檔案丟在一般的目錄下，去升級或者是關閉某個套件是非常麻煩的事情。spf13-vim 3 使用 [NeoBundle] 插件管理系統，讓插件更有架構(類似 Mac 的應用程式目錄). NeoBundle 確保安裝的插件保持在最新版，且升級更簡單。
 
-Great care has been taken to ensure that each plugin plays nicely with others, and optional configuration has been provided for what we believe is the most efficient use.
+我們也盡最大的可能確保每個插件彼此相互運作正常，並且提供最有效的方式來設定插件設定。
 
-Lastly (and perhaps, most importantly) It is completely cross platform. It works well on Windows, Linux and OSX without any modifications or additional configurations. If you are using [MacVim] or Gvim additional features are enabled. So regardless of your environment just clone and run.
+最後(也是最重要的)，它完全可跨平台使用。不需任何修改或額外的設定，即可在 Windows, Linux 和 OSX 上運作正常。如果你使用 [MacVim] 或是 Gvim 將會有額外的功能會被啟用。所以不管你的環境為何，就只要 Clone 然後運行即可。
 
 # spf13-vim 3.0
-January 2012 spf13-vim released it's third major iteration. **This is important as it requires a reinstall**, but trust me it's worth it.
+2012 二月 spf13-vim 發行了第三個主要版本更新。**注意：需要重新安裝**, 相信我，值得你這樣做。
 
-The biggest change is the switch from using git submodules to using the excellent [NeoBundle] system. While git submodules seemed like a good idea at the time, it wasn't. It was always problematic. Additionally because a submodule points to a refspec and not a branch, it was a constant maintenance nightmare to keep everything up to date.
+最大的變動是從使用 git submodules 換成 更棒的 [NeoBundle] 系統。Git submodule 在當時似乎是不錯的方式，但是事實並不是。他總是會出問題。除此之外，如果 submodule 不是指到一個分支而是 refspec 時，維護版本更新就是一場噩夢。
 
-[NeoBundle] has an excellent system built on the same principles as Pathogen, but with an integrated plugin management system that is Git and Github aware.
+[NeoBundle] 是個優良的插件管理系統，與 Pathogen 有類似的管理原則，但與 Git 和 Github 有更高的整合性。
 
-We have also changed out most of the plugins in favor of newer more stable alternatives. Additionally we have significantly reduced the number of plugins requiring python or ruby.
+我們替換了大部份的插件，使用更新或是更穩定的替代方案。此外，我們還大大減少了對於 Python 或 Ruby 的依賴。
 
-The goal has always been to add functionality without changing all the features, functionality and keystrokes we all love. Using spf13-vim we've kept all the default behaviors (by and large), so if you ever find yourself on a vanilla environment you'll feel right at home.
+我們的目標在不更動所有已存的功能、函式及組合鍵下添加功能性。我們保留所有的預設行為，所以即使你在原生環境中，使用 spf13-vim 你一樣會覺得很自在。
 
-# Installation
 
-## Linux, \*nix, Mac OSX Installation
+# 安裝指南
 
-The easiest way to install spf13-vim is to use our [automatic installer](https://j.mp/spf13-vim3) by simply copying and pasting the following line into a terminal. This will install spf13-vim and backup your existing vim configuration. If you are upgrading from a prior version (before 3.0) this is also the recommended installation.
+## Linux, \*nix, Mac OSX 安裝指南
 
-*Requires Git 1.7+ and Vim 7.3+*
+最簡單的方式是使用我們的[自動安裝程式](https://j.mp/spf13-vim3)，你只要在終端機前複製貼上下面那行指令，他將會備份你現有的 vim 設定檔，並且安裝 spf13-vim。如果你是從之前的版本升級，這還是建議的安裝模式。
+
+*需要 Git 1.7 和 Vim 7.3 版本以上*
 
 ```bash
     
     curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
 ```
 
-If you have a bash-compatible shell you can run the script directly:
+如果你是使用 bash 相容的 shell，也可以直接執行下面指令:
 ```bash
 
     sh <(curl https://j.mp/spf13-vim3 -L)
 ```
 
-## Installing on Windows
+## Windows 安裝指南
 
-On Windows and \*nix [Git] and [Curl] are required. Also, if you haven't already, you'll need to install [Vim].
+在 Windows 和 \*nix 平台，[Git] 和 [Curl] 程式是必須的。另外，如果你尚未安裝，你需要安裝 [Vim].
 
-### Installing dependencies
+### 安裝相依程式
 
-#### Install [msysgit]
+#### 安裝 [msysgit]
 
-After installation try running `git --version` within _command prompt_ (press Win-R,  type `cmd`, press Enter) to make sure all good:
+安裝完成後，在 _命令列模式_(按 Win-R, 打 `cmd`, 再按 Enter) 內，試著執行 `git --version` 確認一切正常:
 
     C:\> git --version
     git version 1.7.4.msysgit.0
 
-#### Setup [Curl]
-_Instructions blatently copied from vundle readme_
-Installing Curl on Windows is easy as [Curl] is bundled with [msysgit]!
-But before it can be used with [NeoBundle] it's required make `curl` run in _command prompt_.
-The easiest way is to create `curl.cmd` with [this content](https://gist.github.com/912993)
+#### 設定 [Curl]
+_直接從 vundle readme 複製說明_
+在 Windows 平台安裝 Curl 是很簡單的事情，[Curl] 是已經附在 [msysgit] 上了！
+但必須要讓 `curl` 可以在_命令列模式_被執行，才能讓 [NeoBundle] 能運作正常。
+最簡單的方式就是依照 [這篇內容](https://gist.github.com/912993) 創建 `curl.cmd` 檔案。
 
     @rem Do not use "echo off" to not affect any child calls.
     @setlocal
@@ -84,9 +85,9 @@ The easiest way is to create `curl.cmd` with [this content](https://gist.github.
     @curl.exe %*
 
 
-And copy it to `C:\Program Files\Git\cmd\curl.cmd`, assuming [msysgit] was installed to `c:\Program Files\Git`
+然後將其複製到 `C:\Program Files\Git\cmd\curl.cmd`，假設 [msysgit] 已經安裝在 `C:\Program Files\Git` 下。
 
-to verify all good, run:
+執行下列指令，確保一切安裝正確：
 
     C:\> curl --version
     curl 7.21.1 (i686-pc-mingw32) libcurl/7.21.1 OpenSSL/0.9.8k zlib/1.2.3
@@ -94,12 +95,12 @@ to verify all good, run:
     Features: Largefile NTLM SSL SSPI libz
 
 
-#### Installing spf13-vim on Windows
+#### 在 Windows 平台安裝 spf13-vim
 
-The easiest way is to download and run the spf13-vim-windows-install.cmd file. Remember to run this file in **Administrator Mode** if you want the symlinks to be created successfully.
+最簡單的方式就是下載並執行 spf13-vim-windows-install.cmd 檔案。請注意，如果你希望檔案能夠成功被建立，請使用**管理者模式**來執行此檔案。
 
-## Updating to the latest version
-The simpliest (and safest) way to update is to simply rerun the installer. It will completely and non destructively upgrade to the latest version.
+## 升級到最新版
+最簡單(也是最安全)的方式升級就是重新執行安裝程式。他不會破壞且完整的升級到最新版。
 
 ```bash
 
@@ -107,7 +108,7 @@ The simpliest (and safest) way to update is to simply rerun the installer. It wi
 
 ```
 
-Alternatively you can manually perform the following steps. If anything has changed with the structure of the configuration you will need to create the appropriate symlinks.
+另外，如果設定檔的架構有做更動，你有需要手動執行下列步驟。
 
 ```bash
     cd $HOME/to/spf13-vim/
@@ -115,106 +116,103 @@ Alternatively you can manually perform the following steps. If anything has chan
     vim +NeoBundleInstall! +NeoBundleClean +q
 ```
 
-### Fork me on GitHub
+### 在 Github 上 fork 此專案
 
-I'm always happy to take pull requests from others. A good number of people are already [contributors] to [spf13-vim]. Go ahead and fork me.
+我非常歡迎大家發送 pull requests 給我。已經有不少人是 [spf13-vim] 的 [contributors].
 
-# A highly optimized .vimrc config file
+# 高度最佳化的 .vimrc 設定檔
 
 ![spf13-vimrc image][spf13-vimrc-img]
 
-The .vimrc file is suited to programming. It is extremely well organized and folds in sections.
-Each section is labeled and each option is commented.
+這個 .vimrc 檔案非常適合編程。每個區塊擁有良好的架構跟摺疊設定。
+每個區塊都被命名且每個選項都有註解說明。
 
-It fixes many of the inconveniences of vanilla vim including
+他修正了許多原始 vim 的不便，包含了
 
- * A single config can be used across Windows, Mac and linux
- * Eliminates swap and backup files from littering directories, preferring to store in a central location.
- * Fixes common typos like :W, :Q, etc
- * Setup a solid set of settings for Formatting (change to meet your needs)
- * Setup the interface to take advantage of vim's features including
-   * omnicomplete
-   * line numbers
-   * syntax highlighting
-   * A better ruler & status line
-   * & more
- * Configuring included plugins
+ * 單一設定檔能夠跨平台使用(Windows, Mac 或 Linux)
+ * 備份及暫存檔不再散亂在各個目錄下，而是儲存在一個統一管理目錄內。
+ * 修正一般常見的錯字，像是 :W, :Q 等等
+ * 預設許多格式設定 (可以依需求自行更改)
+ * 預設界面包含了許多 vim 的功能優勢，包含
+   * 自動補全(omnicomplete)
+   * 顯示行號
+   * 語法高亮
+   * 更好的工具列及狀態列
+   * 還有更多
+ * 設定選項(包含插件)
 
-## Customization
+## 客制化
 
-Create `~/.vimrc.local` and `~/.gvimrc.local` for any local
-customizations.
+創建 `~/.vimrc.local` 和 `~/.gvimrc.local` 來達到任何本地端的客制化。
 
-For example, to override the default color schemes:
+例如，想要覆寫預設的配色設定:
 
 ```bash
     echo colorscheme ir_black  >> ~/.vimrc.local
 ```
 
-### Fork Customization
+### Fork 客制化
 
-There is an additional tier of customization available to those who want to maintain a
-fork of spf13-vim specialized for a particular group. These users can create `.vimrc.fork`
-and `.vimrc.bundles.fork` files in the root of their fork.  The load order for the configuration is:
+這是給想要維護特定版本讓特定族群使用的版本，所提供的客制化選項。這些用戶可以創建 `.vimrc.fork` 和
+`.vimrc.bundles.fork` 檔案在他們的版本目錄的最頂層。設定檔的讀取順序如下:
 
-1. `.vimrc.bundles.local` - local user bundle configuration
-2. `.vimrc.bundles.fork` - fork bundle configuration
-3. `.vimrc.bundles` - spf13-vim bundle configuration
-4. `.vimrc` - spf13-vim vim configuration
-5. `.vimrc.fork` - fork vim configuration
-6. `.vimrc.local` - local user configuration
+1. `.vimrc.bundles.local` - 本地端用戶套件設定檔
+2. `.vimrc.bundles.fork` - 分支套件設定檔
+3. `.vimrc.bundles` - spf13-vim 套件設定檔
+4. `.vimrc` - spf13-vim vim 設定檔
+5. `.vimrc.fork` - 分支 vim 設定檔
+6. `.vimrc.local` - 本地端用戶 vim 設定檔
 
 See `.vimrc.bundles` for specifics on what options can be set to override bundle configuration. See `.vimrc` for specifics
-on what options can be overridden. Most vim configuration options should be set in your `.vimrc.fork` file, bundle configuration
-needs to be set in your `.vimrc.bundles.fork` file.
+查看 `.vimrc.bundles` 可以知道哪些套件設定選項能夠被設定且覆寫。查看 `.vimrc` 可以知道哪些設定選項能夠被設定且覆寫。
+大多數的 vim 設定都應該被設定在你的 `.vimrc.fork` 檔中，套件設定則必須設定在你的 `.vimrc.bundles.fork` 檔中.
 
-You may also want to update your `README.markdown` file so that the `bootstrap.sh` link points to your repository and your `bootstrap.sh`
-file to pull down your fork.
+你也許也需要更新你的 `README.markdown` 檔中的 `bootstrap.sh` 連結指導你的 repository，如此你的 `bootstrap.sh` 才能拉下你的版本。
 
-For an example of a fork of spf13-vim that provides customization in this manner see [taxilian's fork](https://github.com/taxilian/spf13-vim).
+一個 spf13-vim 的 fork 客制化範例，可以參閱 [taxilian's fork](https://github.com/taxilian/spf13-vim).
 
-# Plugins
+# 插件
 
-spf13-vim contains a curated set of popular vim plugins, colors, snippets and syntaxes. Great care has been made to ensure that these plugins play well together and have optimal configuration.
+spf13-vim 包含了許多熱門的 vim 插件，配色，腳本片段和語法高亮。我們盡最大努力確保這些插件能夠共同運作正且最佳化其設定檔.
 
-## Adding new plugins
+## 增加新的插件
 
-Create `~/.vimrc.bundles.local` for any additional bundles.
+創建 `~/.vimrc.bundles.local` 給任何新增加的插件
 
-To add a new bundle
+增加一個新的插件
 
 ```bash
     echo NeoBundle \'spf13/vim-colors\' >> ~/.vimrc.bundles.local
 ```
 
-## Removing (disabling) an included plugin
+## 移除 (關閉) 一個已存的插件
 
-Create `~/.vimrc.local` if it doesn't already exist.
+如果沒有這個檔案，請創建 `~/.vimrc.local`
 
-Add the NeoBundleDisable command to this line. It takes the same input as the Bundle line, so simply copy the line you want to disable and add 'Un' to the beginning.
+添加這行 NeoBundleDisable 指令。他跟 Bundle 寫法類似，只要複製你想關閉的插件，並且在最前面加上 'Un' 即可。
 
-For example, disabling the 'AutoClose' and 'scrooloose/syntastic' plugins
+例如，關閉 'AutoClose' 和 'scrooloose/syntastic' 插件
 
 ```bash
     echo NeoBundleDisable \'AutoClose\' >> ~/.vimrc.local
     echo NeoBundleDisable \'scrooloose/syntastic\' >> ~/.vimrc.local
 ```
 
-**Remember to run ':NeoBundleClean!' after this to remove the existing directories**
+**記得執行 ':NeoBundleClean!' 來移除這些插件**
 
 
-Here are a few of the plugins:
+這裡有些插件介紹:
 
 
 ## [Undotree]
 
-If you undo changes and then make a new change, in most editors the changes you undid are gone forever, as their undo-history is a simple list.
-Since version 7.0 vim uses an undo-tree instead. If you make a new change after undoing changes, a new branch is created in that tree.
-Combined with persistent undo, this is nearly as flexible and safe as git ;-)
+如果你復原更改然後又做了一些更動，在多數的編輯器中，你最先的更動是無法再復原，因為他們的復原歷史只是一個簡單的列表。
+從 Vim 7.0 之後使用復原樹取代。如果你復原更改後又做了更動，在復原樹上將會產生一個新的分支。
+結合持續性的復原，他幾乎是像 git 一樣的靈活且安全 ;-)
 
-Undotree makes that feature more accessible by creating a visual representation of said undo-tree.
+Undotree 也有視覺化呈現出復原樹，讓使用上更為便捷。
 
-**QuickStart** Launch using `<Leader>u`.
+**快捷鍵** `<Leader>u`.
 
 ## [NERDTree]
 
