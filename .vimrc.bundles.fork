@@ -39,3 +39,4 @@ endif
     NeoBundle 'teramako/jscomplete-vim'
     NeoBundle 'MarcWeber/vim-addon-local-vimrc'
     NeoBundle 'othree/vim-javascript-syntax'
+    NeoBundle 'plasticboy/vim-markdown'

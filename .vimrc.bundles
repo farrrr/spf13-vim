@@ -224,7 +224,6 @@
 
     " Misc
         if count(g:spf13_bundle_groups, 'misc')
-            NeoBundle 'tpope/vim-markdown'
             NeoBundle 'spf13/vim-preview'
             NeoBundle 'tpope/vim-cucumber'
             NeoBundle 'quentindecock/vim-cucumber-align-pipes'
