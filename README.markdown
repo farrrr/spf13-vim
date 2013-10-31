@@ -11,7 +11,8 @@ spf13-vim 是一個包含了插件及資源的安裝套件，設計給 Vim, Gvim
 
 給在 Windows, Linux, \*nix 或是 Mac 環境下，想使用 VIM 作為開發環境的開發者而言，這是一個非常好的起始點。
 
-此安裝套件可藉著編輯 `~/.vimrc.local` 和 `~/.vimrc.bundles.local` 設定檔來達到完整的客制化。
+<<<<<<< HEAD
+此安裝套件可藉著編輯 `~/.vimrc.local`, `~/.vimrc.bundles.local` 和 `~/.vimrc.before` 設定檔來達到完整的客制化。
 
 ![spf13-vim image][spf13-vim-img]
 
@@ -42,7 +43,7 @@ spf13-vim 是一個包含了插件及資源的安裝套件，設計給 Vim, Gvim
 *需要 Git 1.7 和 Vim 7.3 版本以上*
 
 ```bash
-    
+
     curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
 ```
 
@@ -151,17 +152,30 @@ _直接從 vundle readme 複製說明_
     echo colorscheme ir_black  >> ~/.vimrc.local
 ```
 
-### Fork 客制化
+<<<<<<< HEAD
+### Before 檔案
+建立 `~/.vimrc.before.local` 檔案，定義所有的客製化選項
+他會在讀取 spf13-vim 的 `.vimrc` *之前*被讀取。
 
+例如,為了防止自動進入檔案所在目錄:
+```bash
+    echo let g:spf13_no_autochdir = 1 >> ~/.vimrc.before.local
+```
+
+所有客製化選項，請見 `~/.vimrc.before` 檔案
+
+### Fork 客制化
 這是給想要維護特定版本讓特定族群使用的版本，所提供的客制化選項。這些用戶可以創建 `.vimrc.fork` 和
 `.vimrc.bundles.fork` 檔案在他們的版本目錄的最頂層。設定檔的讀取順序如下:
 
-1. `.vimrc.bundles.local` - 本地端用戶套件設定檔
-2. `.vimrc.bundles.fork` - 分支套件設定檔
-3. `.vimrc.bundles` - spf13-vim 套件設定檔
-4. `.vimrc` - spf13-vim vim 設定檔
-5. `.vimrc.fork` - 分支 vim 設定檔
-6. `.vimrc.local` - 本地端用戶 vim 設定檔
+1. `.vimrc.before.local` - before user configuration
+2. `.vimrc.before.fork` - fork before configuration
+3. `.vimrc.bundles.local` - 本地端用戶套件設定檔
+4. `.vimrc.bundles.fork` - 分支套件設定檔
+5. `.vimrc.bundles` - spf13-vim 套件設定檔
+6. `.vimrc` - spf13-vim vim 設定檔
+7. `.vimrc.fork` - 分支 vim 設定檔
+8. `.vimrc.local` - 本地端用戶 vim 設定檔
 
 See `.vimrc.bundles` for specifics on what options can be set to override bundle configuration. See `.vimrc` for specifics
 查看 `.vimrc.bundles` 可以知道哪些套件設定選項能夠被設定且覆寫。查看 `.vimrc` 可以知道哪些設定選項能夠被設定且覆寫。
@@ -249,7 +263,7 @@ examples.  An asterisk (*) is used to denote the cursor position.
       [123+4*56]/2              cs])        (123+456)/2
       "Look ma, I'm *HTML!"     cs"<q>      <q>Look ma, I'm HTML!</q>
       if *x>3 {                 ysW(        if ( x>3 ) {
-      my $str = *whee!;         vlllls'     my $str = 'whee!';
+      my $str = *whee!;         vllllS'     my $str = 'whee!';
 
 For instance, if the cursor was inside `"foo bar"`, you could type
 `cs"'` to convert the text to `'foo bar'`.
@@ -312,6 +326,7 @@ file
  * `<leader>gb` :Gblame<CR>
  * `<leader>gl` :Glog<CR>
  * `<leader>gp` :Git push<CR>
+ * `<leader>gw` :Gwrite<CR>
  * :Git ___ will pass anything along to git.
 
 ![fugitive image][fugitive-img]
@@ -379,6 +394,14 @@ straightforward movement.
 For example this screen shot demonstrates pressing `,,w`
 
 ![easymotion image][easymotion-img]
+
+## [Airline]
+
+Airline provides a lightweight themable statusline with no external dependencies. By default this configuration uses the symbols `‹` and `›` as separators for different statusline sections but can be configured to use the same symbols as [Powerline]. An example first without and then with powerline symbols is shown here:
+
+![airline image][airline-img]
+
+To enable powerline symbols first install one of the [Powerline Fonts] or patch your favorite font using the provided instructions. Configure your terminal, MacVim, or Gvim to use the desired font. Finally add `let g:airline_powerline_fonts=1` to your `.vimrc.before.local`.
 
 ## Additional Syntaxes
 
@@ -464,6 +487,9 @@ Here's some tips if you've never used VIM before:
 [Matchit]:http://www.vim.org/scripts/script.php?script_id=39
 [Tabularize]:https://github.com/godlygeek/tabular
 [EasyMotion]:https://github.com/Lokaltog/vim-easymotion
+[Airline]:https://github.com/bling/vim-airline
+[Powerline]:https://github.com/lokaltog/powerline
+[Powerline Fonts]:https://github.com/Lokaltog/powerline-fonts
 
 [spf13-vim-img]:https://i.imgur.com/UKToY.png
 [spf13-vimrc-img]:https://i.imgur.com/kZWj1.png
@@ -473,3 +499,4 @@ Here's some tips if you've never used VIM before:
 [nerdtree-img]:https://i.imgur.com/9xIfu.png
 [phpmanual-img]:https://i.imgur.com/c0GGP.png
 [easymotion-img]:https://i.imgur.com/ZsrVL.png
+[airline-img]:https://i.imgur.com/D4ZYADr.png
