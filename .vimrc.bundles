@@ -105,7 +105,7 @@
             NeoBundle 'tpope/vim-surround'
             NeoBundle 'spf13/vim-autoclose'
             NeoBundle 'kien/ctrlp.vim'
-            Neobundle 'terryma/vim-multiple-cursors'
+            NeoBundle 'terryma/vim-multiple-cursors'
             NeoBundle 'vim-scripts/sessionman.vim'
             NeoBundle 'matchit.zip'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
