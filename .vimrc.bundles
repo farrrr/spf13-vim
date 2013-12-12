@@ -115,7 +115,7 @@
             else
                 NeoBundle 'bling/vim-airline'
             endif
-
+            NeoBundle 'bling/vim-bufferline'
             NeoBundle 'Lokaltog/vim-easymotion'
             NeoBundle 'godlygeek/csapprox'
             NeoBundle 'jistr/vim-nerdtree-tabs'
@@ -126,8 +126,10 @@
             if !exists('g:spf13_no_views')
                 NeoBundle 'vim-scripts/restore_view.vim'
             endif
-            NeoBundle 'airblade/vim-gitgutter'
+            NeoBundle 'mhinz/vim-signify'
             NeoBundle 'tpope/vim-abolish.git'
+            NeoBundle 'osyo-manga/vim-over'
+            NeoBundle 'justinmk/vim-sneak'
         endif
     " }
 
@@ -239,6 +241,7 @@
 
     " Misc {
         if count(g:spf13_bundle_groups, 'misc')
+            NeoBundle 'tpope/vim-markdown'
             NeoBundle 'spf13/vim-preview'
             NeoBundle 'tpope/vim-cucumber'
             NeoBundle 'quentindecock/vim-cucumber-align-pipes'

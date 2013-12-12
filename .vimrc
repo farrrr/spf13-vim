@@ -375,6 +375,9 @@
     map zl zL
     map zh zH
 
+    " fullscreen mode for GVIM and Terminal, need 'wmctrl' in you PATH
+    map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
+
 " }
 
 " Plugins {
@@ -472,6 +475,7 @@
         set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
         nmap <leader>sl :SessionList<CR>
         nmap <leader>ss :SessionSave<CR>
+        nmap <leader>sc :SessionClose<CR>
     " }
 
     " JSON {
@@ -545,10 +549,10 @@
         nnoremap <silent> <leader>gb :Gblame<CR>
         nnoremap <silent> <leader>gl :Glog<CR>
         nnoremap <silent> <leader>gp :Git push<CR>
-        nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
-        nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
+        nnoremap <silent> <leader>gr :Gread<CR>
+        nnoremap <silent> <leader>gw :Gwrite<CR>
         nnoremap <silent> <leader>ge :Gedit<CR>
-        nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+        nnoremap <silent> <leader>gg :SignifyToggle<CR>
     "}
 
     " neocomplete {
@@ -764,6 +768,7 @@
             let g:indent_guides_auto_colors = 1
         else
             " For some colorschemes, autocolor will not work (eg: 'desert', 'ir_black')
+            let g:indent_guides_auto_colors = 0
             autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212121 ctermbg=3
             autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#404040 ctermbg=4
         endif
@@ -786,11 +791,6 @@
             let g:airline_left_sep='›'  " Slightly fancier than '>'
             let g:airline_right_sep='‹' " Slightly fancier than '<'
         endif
-    " }
-
-    " vim-gitgutter {
-        " https://github.com/airblade/vim-gitgutter/issues/106
-        let g:gitgutter_realtime = 0
     " }
 
 " }
